@@ -71,7 +71,6 @@ var readyPromise = new Promise(resolve => {
   _resolve = resolve
 })
 
-console.log('> Starting dev server...')
 devMiddleware.waitUntilValid(() => {
   console.log('> Listening at ' + uri + '\n')
   // when env is testing, don't need open it
@@ -81,11 +80,10 @@ devMiddleware.waitUntilValid(() => {
   _resolve()
 })
 
-var server = app.listen(port)
 
-module.exports = {
+module.exports = { 
+  app,
+  port,
+  url: uri,
   ready: readyPromise,
-  close: () => {
-    server.close()
-  }
 }

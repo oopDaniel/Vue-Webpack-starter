@@ -57,6 +57,7 @@ var webpackConfig = merge(baseWebpackConfig, {
         : config.build.index,
       template: 'index.html',
       inject: true,
+      favicon: config.build.assetsSubDirectory + '/favicon.ico',
       minify: {
         removeComments: true,
         collapseWhitespace: true,
@@ -119,6 +120,13 @@ if (config.build.productionGzip) {
 if (config.build.bundleAnalyzerReport) {
   var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
   webpackConfig.plugins.push(new BundleAnalyzerPlugin())
+}
+
+if (config.build.magicComments) {
+  var magicCommentsPlugin = require('./magic-comments')
+  webpackConfig.plugins.push(new magicCommentsPlugin({
+    comments: config.build.comments
+  }))
 }
 
 module.exports = webpackConfig

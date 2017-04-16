@@ -1,9 +1,23 @@
-.DS_Store
+# Dependencies
 node_modules/
+
+# Build artifacts
 dist/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+
+# Test
 test/unit/coverage
 test/e2e/reports
-selenium-debug.log
+
+# Local settings
+settings_local.js
+
+# IDE & OS
+.idea/
+.vscode/
+.DS_Store
+
+# Other
+*.log
+
+# SSL certs/keys
+certs/

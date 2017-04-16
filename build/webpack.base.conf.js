@@ -1,7 +1,15 @@
 var path = require('path')
+var webpack = require('webpack')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
+
+let settings
+try {
+  settings = require('../settings_local')
+} catch (e) {
+  settings = require('../settings')
+}
 
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
@@ -22,7 +30,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'virtual-scroller': 'vue-virtual-scroller/dist/vue-virtual-scroller'
     }
   },
   module: {
@@ -44,7 +53,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        include: [resolve('src'), resolve('test')]
+        include: [ resolve('src'), resolve('test') ]
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -63,5 +72,16 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      WEBPACK_VARIABLE_API_SERVER:
+        JSON.stringify(settings.API_SERVER),
+      WEBPACK_VARIABLE_STRIPE_PUBLIC_KEY:
+        JSON.stringify(settings.STRIPE_PUBLIC_KEY),
+      WEBPACK_VARIABLE_SEGMENT_API_KEY:
+        JSON.stringify(settings.SEGMENT_API_KEY)
+    }),
+  ]
+
 }

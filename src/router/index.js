@@ -1,15 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+
+import UserView from '../components/views/UserView'
+import AdminView from '../components/views/AdminView'
+import Dashboard from '../components/views/Dashboard'
+import User from '../components/views/User'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      component: UserView,
+      children: [
+        {
+          path: '/',
+          component: Dashboard
+        },
+        {
+          path: '/user',
+          component: User
+        }
+      ]
+    },
+    {
+      path: '/admin',
+      component: AdminView
     }
   ]
 })
