@@ -16,6 +16,16 @@ const AdminDashboard = resolve =>
     require('../components/Admin/Dashboard')
   ), 'admin')
 
+const Signup = resolve =>
+  require.ensure(['../components/views/Signup'], () => resolve(
+    require('../components/views/Signup')
+  ), 'login')
+
+const Signin = resolve =>
+  require.ensure(['../components/User/Signin'], () => resolve(
+    require('../components/User/Signin')
+  ), 'login')
+
 export default new Router({
   mode: 'history',
   routes: [
@@ -32,6 +42,11 @@ export default new Router({
           path: '/user',
           name: 'info',
           component: Info
+        },
+        {
+          path: '/signin',
+          name: 'signin',
+          component: Signin
         }
       ]
     },
@@ -45,6 +60,11 @@ export default new Router({
           component: AdminDashboard
         }
       ]
+    },
+    {
+      path: '/signup',
+      name: 'signup',
+      component: Signup
     },
     {
       path: '*',

@@ -1,17 +1,26 @@
 <template lang="pug">
   .container.flex-center
     button.name(
-      @click="shouldShowMenu = !shouldShowMenu",
-      @blur="hideMenu") {{ name }}
+      @click="shouldShowMenu = !shouldShowMenu"
+      ) {{ name }}
     .menu(v-if="shouldShowMenu")
-      .menu-item.flex-center(v-if="!this.user") Signup
-      .menu-item.flex-center(v-if="!this.user") Signin
-      .menu-item.flex-center(v-else) Signout
+      router-link.menu-item.flex-center(
+        v-if="!this.user",
+        :to="{ name: 'signup' }"
+      ) Signup
+      router-link.menu-item.flex-center(
+        v-if="!this.user",
+        :to="{ name: 'signin' }"
+      ) Signin
+      .menu-item.flex-center(
+        v-else
+        @click="signout"
+      ) Signout
 
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
   data: () => ({
     defaultName: 'User',
@@ -24,6 +33,8 @@ export default {
     }
   },
   methods: {
+    ...mapActions('user', ['updateUser']),
+    signout () { this.updateUser(null) },
     hideMenu () { this.shouldShowMenu = false }
   }
 }

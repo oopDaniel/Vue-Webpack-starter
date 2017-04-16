@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" scoped>
 .info
   margin 4rem
 
