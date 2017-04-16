@@ -8,7 +8,8 @@ const state = {
 }
 
 const actions = {
-  fetchUser
+  fetchUser,
+  updateUserPrivilege
 }
 
 const getters = {
@@ -28,6 +29,10 @@ const mutations = {
     state.error = new Error('Fetch user false')
     state.error.error = error
     state.isFetching = false
+  },
+  [types.UPDATE_USER_PRIVILEGE] (state, isAdmin) {
+    if (state.user === null) return
+    state.user.isAdmin = isAdmin
   }
 }
 
@@ -39,6 +44,10 @@ async function fetchUser ({commit}) {
     commit(types.FETCH_USER_FAILURE, e)
     console.error('Unable to fetch user', e)
   }
+}
+
+function updateUserPrivilege ({commit}, payload) {
+  commit(types.UPDATE_USER_PRIVILEGE, payload)
 }
 
 export default {

@@ -2,12 +2,23 @@
   nav.flex-center
     router-link.link(to="/", activeClass="active" exact) Home
     router-link.link(to="/user", activeClass="active") User
-    router-link.link(to="/admin", activeClass="active") Admin
+    router-link.link(
+      to="/admin",
+      activeClass="active",
+      :class="{ inactive: !isAdmin }"
+    ) Admin
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 
 export default {
+  computed: {
+    ...mapGetters('user', ['user']),
+    isAdmin () {
+      return this.user && this.user.isAdmin
+    }
+  }
 }
 </script>
 
@@ -21,6 +32,11 @@ export default {
     transition color .2s
     &:hover
       color lightblue
+  
+  .inactive
+    color lightgrey
+    &:hover
+      color grey
 
   .active
     &:before
