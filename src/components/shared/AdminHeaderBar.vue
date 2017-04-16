@@ -23,6 +23,7 @@ export default {
     border-bottom 2px solid var(--accent)
     width 100%
   .brand
+    min-width 360px
     padding 0 2rem
 
   .nav

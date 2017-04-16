@@ -6,7 +6,7 @@
 
 <script>
   // import { mapState, mapActions } from 'vuex'
-  import AdminHeaderBar from '../shared/AdminHeaderBar'
+  import AdminHeaderBar from '@/components/shared/AdminHeaderBar'
 
   export default {
     components: { AdminHeaderBar }

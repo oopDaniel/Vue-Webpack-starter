@@ -2,6 +2,7 @@
   nav.flex-center
     router-link.link(to="/", activeClass="active" exact) Home
     router-link.link(to="/user", activeClass="active") User
+    router-link.link(to="/admin", activeClass="active") Admin
 </template>
 
 <script>
