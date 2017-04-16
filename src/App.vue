@@ -25,6 +25,7 @@
   :root
     --accent wheat
     --standard-text #eee
+    --light-blue #22c1ff
 
   a
     text-decoration none

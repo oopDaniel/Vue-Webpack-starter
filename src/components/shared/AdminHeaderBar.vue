@@ -5,14 +5,16 @@
         img.logo-img(src='~@/assets/logo.png')
       h3 Admin View
     nav-bar.nav
+    user-btn
 
 </template>
 
 <script>
 import NavBar from './NavBar'
+import UserBtn from './UserBtn'
 
 export default {
-  components: { NavBar }
+  components: { NavBar, UserBtn }
 }
 </script>
 

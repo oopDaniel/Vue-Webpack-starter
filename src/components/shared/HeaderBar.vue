@@ -5,14 +5,16 @@
         img.logo-img(src='~@/assets/logo.png')
       h3 Vue App with Submodules
     nav-bar.nav
+    user-btn
 
 </template>
 
 <script>
 import NavBar from './NavBar'
+import UserBtn from './UserBtn'
 
 export default {
-  components: { NavBar }
+  components: { NavBar, UserBtn }
 }
 </script>
 

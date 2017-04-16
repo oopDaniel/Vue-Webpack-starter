@@ -11,6 +11,10 @@ const actions = {
   fetchUser
 }
 
+const getters = {
+  user: state => state.user
+}
+
 const mutations = {
   [types.FETCH_USER_START] (state) {
     state.isFetching = true
@@ -41,5 +45,6 @@ export default {
   namespaced: true,
   state,
   actions,
+  getters,
   mutations
 }

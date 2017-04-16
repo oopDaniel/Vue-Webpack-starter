@@ -18,6 +18,9 @@ export default {
   .link
     position relative
     padding 0 1.5rem
+    transition color .2s
+    &:hover
+      color lightblue
 
   .active
     &:before
