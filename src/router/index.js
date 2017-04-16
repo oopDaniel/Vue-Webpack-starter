@@ -1,8 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import UserView from '../components/views/UserView'
 import AdminView from '../components/views/AdminView'
+import AdminDashboard from '../components/views/AdminDashboard'
+import UserView from '../components/views/UserView'
 import Dashboard from '../components/views/Dashboard'
 import User from '../components/views/User'
 
@@ -27,7 +28,13 @@ export default new Router({
     },
     {
       path: '/admin',
-      component: AdminView
+      component: AdminView,
+      children: [
+        {
+          path: '/',
+          component: AdminDashboard
+        }
+      ]
     }
   ]
 })
