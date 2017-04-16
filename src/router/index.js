@@ -2,19 +2,19 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import UserView from '../components/views/UserView'
-import Dashboard from '../components/views/Dashboard'
-import User from '../components/views/User'
-
-const AdminView = resolve =>
-  require.ensure(['../components/views/Admin/AdminView'], () => resolve(
-    require('../components/views/Admin/AdminView')
-  ), 'admin')
-const AdminDashboard = resolve =>
-  require.ensure(['../components/views/Admin/AdminDashboard'], () => resolve(
-    require('../components/views/Admin/AdminDashboard')
-  ), 'admin')
+import Dashboard from '../components/User/Dashboard'
+import Info from '../components/User/Info'
 
 Vue.use(Router)
+
+const AdminView = resolve =>
+  require.ensure(['../components/views/AdminView'], () => resolve(
+    require('../components/views/AdminView')
+  ), 'admin')
+const AdminDashboard = resolve =>
+  require.ensure(['../components/Admin/Dashboard'], () => resolve(
+    require('../components/Admin/Dashboard')
+  ), 'admin')
 
 export default new Router({
   mode: 'history',
@@ -29,7 +29,7 @@ export default new Router({
         },
         {
           path: '/user',
-          component: User
+          component: Info
         }
       ]
     },
