@@ -44,7 +44,8 @@ app.use(helmet.contentSecurityPolicy({
 const redirects = require('./redirects')
 
 app.use('/', redirects)
-app.use('/app', express.static('dist/vue-app'))
+app.use(/\/app/, express.static('dist/vue-app'))
+app.use(/\/app(\/.*)+/, express.static('dist/vue-app', {'extensions': ['html']}))
 
 // 404
 app.use((req, res, next) => {
