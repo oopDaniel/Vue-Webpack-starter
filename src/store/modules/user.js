@@ -26,7 +26,7 @@ const mutations = {
   },
   [types.FETCH_USER_FAILURE] (state, error) {
     state.user = null
-    state.error = new Error('Fetch user false')
+    state.error = new Error('Fetch user failed')
     state.error.error = error
     state.isFetching = false
   },

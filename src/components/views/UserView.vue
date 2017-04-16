@@ -5,7 +5,6 @@
 </template>
 
 <script>
-  // import { mapState, mapActions } from 'vuex'
   import HeaderBar from '../shared/HeaderBar'
 
   export default {

@@ -2,7 +2,7 @@
   .header-bar
     .brand.flex-center
       router-link(to="/")
-        img.logo-img(src='~@/assets/logo.png')
+        img.logo-img(src="~@/assets/logo.png")
       h3 Admin View
     nav-bar.nav
     user-btn
@@ -27,6 +27,7 @@ export default {
   .brand
     min-width 360px
     padding 0 2rem
+    justify-content flex-start
 
   .nav
     flex 1

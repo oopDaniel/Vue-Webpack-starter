@@ -25,10 +25,12 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'dashboard',
           component: Dashboard
         },
         {
           path: '/user',
+          name: 'info',
           component: Info
         }
       ]
@@ -39,9 +41,14 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'adminDashboard',
           component: AdminDashboard
         }
       ]
+    },
+    {
+      path: '*',
+      redirect: '/'
     }
   ]
 })

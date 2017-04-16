@@ -1,12 +1,12 @@
 <template lang="pug">
   .container.flex-center
     button.name(
-      @click='shouldShowMenu = !shouldShowMenu',
-      @blur='hideMenu') {{ name }}
-    .menu(v-if='shouldShowMenu === true')
-      .menu-item.flex-center(v-if='this.user == null') Sign Up
-      .menu-item.flex-center(v-if='this.user == null') Log In
-      .menu-item.flex-center(v-else) Log Out
+      @click="shouldShowMenu = !shouldShowMenu",
+      @blur="hideMenu") {{ name }}
+    .menu(v-if="shouldShowMenu")
+      .menu-item.flex-center(v-if="!this.user") Signup
+      .menu-item.flex-center(v-if="!this.user") Signin
+      .menu-item.flex-center(v-else) Signout
 
 </template>
 

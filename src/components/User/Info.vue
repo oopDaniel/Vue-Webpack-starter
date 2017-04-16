@@ -12,18 +12,20 @@
     .row
       .key Are you admin?
       .value
-        input(
-          type="radio",
-          :value="true",
-          v-model="isAdmin"
-        ) 
-        span Yes
-        input(
-          type="radio",
-          :value="false",
-          v-model="isAdmin"
-        )
-        span No
+        span.form-control
+          input(
+            type="radio",
+            :value="true",
+            v-model="isAdmin"
+          ) 
+          label Yes
+        span.form-control
+          input(
+            type="radio",
+            :value="false",
+            v-model="isAdmin"
+          )
+          label No
 
 </template>
 
@@ -53,4 +55,7 @@ export default {
 .key
   flex 0 0 152px
   color steelblue
+
+.form-control
+  margin-right .5rem
 </style>
