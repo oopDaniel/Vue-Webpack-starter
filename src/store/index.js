@@ -1,8 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// import list from './modules/list'
-// import user from './modules/user'
+import user from './modules/user'
 
 import getters from './getters'
 import mutations from './mutations'
@@ -16,8 +15,7 @@ const storeConfig = {
   mutations,
   actions,
   modules: {
-    // list,
-    // user
+    user
   },
   strict: process.env.NODE_ENV === 'development'
 }
