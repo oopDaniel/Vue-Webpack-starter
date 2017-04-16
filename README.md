@@ -2,6 +2,9 @@
 
 > Web app in `vue.js` with submodules (like `ng-app`, `react-app` and/or `landing page`)
 
+- Equipped with `Vuex`, `Vue-router`, tests and building scripts
+- Provide basic examples
+
 ## Build Setup
 
 Prefer `yarn`, but `npm` also works
