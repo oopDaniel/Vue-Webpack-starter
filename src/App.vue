@@ -43,13 +43,6 @@
     display flex
     flex-direction column
 
-    > *:first-child
-      height 50px
-      flex-shrink 0
-
-    > *:nth-child(2)
-      flex 1
-
   .flex-center
     display flex
     align-items center
